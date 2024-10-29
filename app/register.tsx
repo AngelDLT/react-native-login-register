@@ -146,14 +146,14 @@ export default function Register() {
           keyboardType="email-address"
           autoCapitalize="none"
         />
-        {emailError ? <ErrorMessage>{emailError}</ErrorMessage> : null}
+        {emailError ? <ErrorMessage testID={'email-error'}>{emailError}</ErrorMessage> : null}
         <StyledInput
           placeholder="Username"
           value={username}
           onChangeText={(text) => validateUsername(text)}
           autoCapitalize="none"
         />
-        {usernameError ? <ErrorMessage>{usernameError}</ErrorMessage> : null}
+        {usernameError ? <ErrorMessage testID={'username-error'}>{usernameError}</ErrorMessage> : null}
         <StyledInput
           placeholder="Contraseña"
           value={password}
@@ -161,7 +161,7 @@ export default function Register() {
           secureTextEntry
           autoCapitalize="none"
         />
-        {passwordError ? <ErrorMessage>{passwordError}</ErrorMessage> : null}
+        {passwordError ? <ErrorMessage testID={'password-error'}>{passwordError}</ErrorMessage> : null}
         <StyledInput
           placeholder="Repetir contraseña"
           value={repeatedPassword}
@@ -169,7 +169,7 @@ export default function Register() {
           secureTextEntry
           autoCapitalize="none"
         />
-        {repeatedPasswordError ? <ErrorMessage>{repeatedPasswordError}</ErrorMessage> : null}
+        {repeatedPasswordError ? <ErrorMessage testID={'repeat-password-error'}>{repeatedPasswordError}</ErrorMessage> : null}
         <Divider>
           <Button title="Submit" onPress={handleSubmit} disabled={isSubmitDisabled} />
         </Divider>

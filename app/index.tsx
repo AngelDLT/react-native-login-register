@@ -109,7 +109,7 @@ export default function Index() {
   return (
     <MainContainer>
       <Container>
-        <StyledImage source={require("@/assets/images/img1.jpg")} />
+        <StyledImage testID={'index-image'} source={require("@/assets/images/img1.jpg")} />
       </Container>
       <ContainerBig>
         <StyledInput
@@ -119,7 +119,7 @@ export default function Index() {
           keyboardType="email-address"
           autoCapitalize="none"
         />
-        {emailError ? <ErrorMessage>{emailError}</ErrorMessage> : null}
+        {emailError ? <ErrorMessage testID={'email-error'}>{emailError}</ErrorMessage> : null}
 
         <StyledInput
           placeholder="Contraseña"
@@ -128,14 +128,14 @@ export default function Index() {
           secureTextEntry
           autoCapitalize="none"
         />
-        {passwordError ? <ErrorMessage>{passwordError}</ErrorMessage> : null}
+        {passwordError ? <ErrorMessage testID={'password-error'}>{passwordError}</ErrorMessage> : null}
         <Divider>
           <Button
-            title="Submit"
+            title="Iniciar sesión"
             onPress={handleSubmit}
             disabled={isSubmitDisabled} // Deshabilita el botón basado en el estado
           />
-          <Button title="Register" onPress={onPressLearnMore} />
+          <Button title="Registrarse" onPress={onPressLearnMore} />
         </Divider>
       </ContainerBig>
     </MainContainer>
