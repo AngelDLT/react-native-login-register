@@ -33,6 +33,7 @@ export default function ArtistDetailView() {
       <ArtistNameComponent>{name}</ArtistNameComponent>
       <ArtistIdComponent>{id}</ArtistIdComponent>
       <ArtistImageComponent
+        testID="image-artist-detail"
         source={{ uri: Array.isArray(imageUrl) ? imageUrl[0] : imageUrl }}
       />
     </MainContainer>

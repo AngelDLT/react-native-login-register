@@ -2,7 +2,7 @@ import { View, Image, TextInput, Text, Button, Alert } from "react-native";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { useRouter } from "expo-router";
-import { getMusicData } from "./api-client";
+// import { getMusicData } from "./api-client";
 
 const MainContainer = styled(View)`
   flex: 1;
@@ -52,7 +52,7 @@ const ErrorMessage = styled(Text)`
 `;
 
 export default function Index() {
-  getMusicData().then((data) => console.warn(data));
+  // getMusicData().then((data) => console.warn(data));
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -122,7 +122,7 @@ export default function Index() {
         <StyledInput
           placeholder="Email"
           value={email}
-          onChangeText={(text) => validateEmail(text)}
+          onChangeText={(text: string) => validateEmail(text)}
           keyboardType="email-address"
           autoCapitalize="none"
         />

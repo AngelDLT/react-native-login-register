@@ -34,7 +34,7 @@ const Name = styled(Text)`
 
 export default function ArtistBox({ artist }: { artist: Artist }) {
   return (
-    <MainContainer>
+    <MainContainer testID="artist-box">
       <ImageContainer source={{ uri: artist.imageUrl }} testID="artist-image" />
       <Info>
         <Name>{artist.name}</Name>
