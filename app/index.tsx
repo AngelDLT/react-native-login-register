@@ -2,6 +2,7 @@ import { View, Image, TextInput, Text, Button, Alert } from "react-native";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { useRouter } from "expo-router";
+import { getMusicData } from "./api-client";
 
 const MainContainer = styled(View)`
   flex: 1;
@@ -51,6 +52,7 @@ const ErrorMessage = styled(Text)`
 `;
 
 export default function Index() {
+  getMusicData().then((data) => console.warn(data));
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -102,14 +104,19 @@ export default function Index() {
     validatePassword(password);
 
     if (!emailError && !passwordError) {
-      Alert.alert("Éxito", `Email: ${email}\nPassword: ${password}`);
+      router.push({
+        pathname: "./home",
+      });
     }
   };
 
   return (
     <MainContainer>
       <Container>
-        <StyledImage testID={'index-image'} source={require("@/assets/images/img1.jpg")} />
+        <StyledImage
+          testID={"index-image"}
+          source={require("@/assets/images/img1.jpg")}
+        />
       </Container>
       <ContainerBig>
         <StyledInput
@@ -119,7 +126,9 @@ export default function Index() {
           keyboardType="email-address"
           autoCapitalize="none"
         />
-        {emailError ? <ErrorMessage testID={'email-error'}>{emailError}</ErrorMessage> : null}
+        {emailError ? (
+          <ErrorMessage testID={"email-error"}>{emailError}</ErrorMessage>
+        ) : null}
 
         <StyledInput
           placeholder="Contraseña"
@@ -128,7 +137,9 @@ export default function Index() {
           secureTextEntry
           autoCapitalize="none"
         />
-        {passwordError ? <ErrorMessage testID={'password-error'}>{passwordError}</ErrorMessage> : null}
+        {passwordError ? (
+          <ErrorMessage testID={"password-error"}>{passwordError}</ErrorMessage>
+        ) : null}
         <Divider>
           <Button
             title="Iniciar sesión"
